@@ -19,14 +19,6 @@ type Ptr[T int | int32] *T // ptr
 
 type SliceInt[T Int] []T // slice
 
-type StructInt[T Int] struct { // struct
-	Data T
-}
-
-func (s *StructInt[T]) Val() T {
-	return s.Data
-}
-
 type MapInt[K Int, V any] map[K]V // map
 
 type ChannelInt[T Int] chan T // chan
@@ -36,12 +28,23 @@ type InterfaceInt[T Int] interface { // interface
 	Val() T
 }
 
+// 例子1，InterfaceInt的实现
+type StructInt[T Int] struct { // struct
+	Data T
+}
+
+func (s *StructInt[T]) Val() T {
+	return s.Data
+}
+
+// 例子2，InterfaceInt的实现
 type InterfaceIntImpl1 struct{}
 
 func (i *InterfaceIntImpl1) Val() int {
 	return 1
 }
 
+// 例子3，InterfaceInt的实现
 type InterfaceIntImpl2 int32
 
 func (i InterfaceIntImpl2) Val() int32 {

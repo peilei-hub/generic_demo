@@ -33,7 +33,6 @@ func (m *Map[K, V]) PrintAll() {
 }
 
 // 2.1 不支持泛型方法
-//
 //	func (m *Map[K, V]) TestGeneric[T int | string](a, b T) T {
 //		return a + b
 //	}
